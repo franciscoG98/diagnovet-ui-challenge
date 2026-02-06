@@ -1,0 +1,341 @@
+{
+  "meta": {
+    "generatedAt": "2026-02-06T14:59:41.071Z",
+    "repoRoot": "/home/iadventurecenter04/workspace/mine/diagnovet-ui-challenge"
+  },
+  "project": {
+    "name": "diagnovet-ui-challenge",
+    "isNext": true,
+    "isTS": true,
+    "hasESLint": true,
+    "hasPrettier": false,
+    "scripts": {
+      "dev": "next dev",
+      "build": "next build",
+      "start": "next start",
+      "lint": "eslint"
+    },
+    "deps": [
+      "@hookform/resolvers",
+      "class-variance-authority",
+      "clsx",
+      "lucide-react",
+      "next",
+      "radix-ui",
+      "react",
+      "react-dom",
+      "react-hook-form",
+      "tailwind-merge"
+    ],
+    "devDeps": [
+      "@tailwindcss/postcss",
+      "@types/node",
+      "@types/react",
+      "@types/react-dom",
+      "eslint",
+      "eslint-config-next",
+      "tailwindcss",
+      "tw-animate-css",
+      "typescript"
+    ]
+  },
+  "inventory": {
+    "totalFiles": 57,
+    "byExt": {
+      "(no-ext)": 1,
+      ".md": 2,
+      ".json": 5,
+      ".mjs": 2,
+      ".ts": 2,
+      ".tsx": 43,
+      ".ico": 1,
+      ".css": 1
+    },
+    "largestFiles": [
+      {
+        "path": "package-lock.json",
+        "ext": ".json",
+        "bytes": 297042
+      },
+      {
+        "path": "app/favicon.ico",
+        "ext": ".ico",
+        "bytes": 25931
+      },
+      {
+        "path": "app/(app)/analyze/page.tsx",
+        "ext": ".tsx",
+        "bytes": 15152
+      },
+      {
+        "path": "app/(app)/reports/[reportId]/preview/page.tsx",
+        "ext": ".tsx",
+        "bytes": 9698
+      },
+      {
+        "path": "app/(app)/study/ultrasound/page.tsx",
+        "ext": ".tsx",
+        "bytes": 9257
+      },
+      {
+        "path": "components/ui/dropdown-menu.tsx",
+        "ext": ".tsx",
+        "bytes": 8418
+      },
+      {
+        "path": "components/ui/select.tsx",
+        "ext": ".tsx",
+        "bytes": 6353
+      },
+      {
+        "path": "AGENTS.md",
+        "ext": ".md",
+        "bytes": 5451
+      },
+      {
+        "path": "app/globals.css",
+        "ext": ".css",
+        "bytes": 4915
+      },
+      {
+        "path": "app/onboarding/profile/page.tsx",
+        "ext": ".tsx",
+        "bytes": 4572
+      },
+      {
+        "path": "components/ui/dialog.tsx",
+        "ext": ".tsx",
+        "bytes": 4303
+      },
+      {
+        "path": "components/ui/sheet.tsx",
+        "ext": ".tsx",
+        "bytes": 4188
+      },
+      {
+        "path": "components/reports-table.tsx",
+        "ext": ".tsx",
+        "bytes": 4000
+      },
+      {
+        "path": "app/(app)/settings/professional/page.tsx",
+        "ext": ".tsx",
+        "bytes": 3711
+      },
+      {
+        "path": "app/onboarding/clinic/page.tsx",
+        "ext": ".tsx",
+        "bytes": 3700
+      },
+      {
+        "path": "app/auth/login/page.tsx",
+        "ext": ".tsx",
+        "bytes": 3236
+      },
+      {
+        "path": "components/ui/avatar.tsx",
+        "ext": ".tsx",
+        "bytes": 2916
+      },
+      {
+        "path": "app/(app)/settings/personal/page.tsx",
+        "ext": ".tsx",
+        "bytes": 2800
+      },
+      {
+        "path": "components/user-menu.tsx",
+        "ext": ".tsx",
+        "bytes": 2606
+      },
+      {
+        "path": "components/ui/table.tsx",
+        "ext": ".tsx",
+        "bytes": 2448
+      }
+    ]
+  },
+  "testHints": [],
+  "refactorPlan": [],
+  "appContext": {
+    "summary": {
+      "whatItDoes": [],
+      "whatItDoesNotDo": [
+        "No se detecta integración explícita con pasarelas de pago (Stripe/MercadoPago) en dependencias/estructura.",
+        "No se detecta comunicación realtime (WebSockets) en estructura/dependencias."
+      ],
+      "keyDomains": []
+    },
+    "stack": {
+      "framework": "Next.js",
+      "language": [
+        "TypeScript",
+        "React"
+      ],
+      "styling": [
+        "CSS global (globals.css)"
+      ],
+      "tooling": [
+        "ESLint",
+        "TypeScript"
+      ]
+    },
+    "structure": {
+      "appRouter": true,
+      "pagesRouter": false,
+      "keyFolders": [
+        {
+          "path": "app/",
+          "purpose": "Next App Router: páginas, layouts, rutas"
+        },
+        {
+          "path": "components/",
+          "purpose": "Componentes UI reutilizables"
+        }
+      ]
+    },
+    "ui": {
+      "pages": [
+        {
+          "routeHint": "/",
+          "file": "app/page.tsx"
+        },
+        {
+          "routeHint": "/auth/login",
+          "file": "app/auth/login/page.tsx"
+        },
+        {
+          "routeHint": "/analyze",
+          "file": "app/(app)/analyze/page.tsx"
+        },
+        {
+          "routeHint": "/dashboard",
+          "file": "app/(app)/dashboard/page.tsx"
+        },
+        {
+          "routeHint": "/reports",
+          "file": "app/(app)/reports/page.tsx"
+        },
+        {
+          "routeHint": "/onboarding/clinic",
+          "file": "app/onboarding/clinic/page.tsx"
+        },
+        {
+          "routeHint": "/onboarding/profile",
+          "file": "app/onboarding/profile/page.tsx"
+        },
+        {
+          "routeHint": "/settings/personal",
+          "file": "app/(app)/settings/personal/page.tsx"
+        },
+        {
+          "routeHint": "/settings/professional",
+          "file": "app/(app)/settings/professional/page.tsx"
+        },
+        {
+          "routeHint": "/study/ultrasound",
+          "file": "app/(app)/study/ultrasound/page.tsx"
+        },
+        {
+          "routeHint": "/reports/[reportId]/preview",
+          "file": "app/(app)/reports/[reportId]/preview/page.tsx"
+        }
+      ],
+      "keyComponents": [],
+      "contexts": [],
+      "hooks": []
+    },
+    "dataAccess": {
+      "services": [],
+      "endpoints": [],
+      "risks": []
+    }
+  },
+  "issues": [
+    {
+      "id": "CFG-PRETTIER-001",
+      "severity": "medium",
+      "title": "No se detectó Prettier",
+      "explanation": "Sin Prettier, el formato puede volverse inconsistente."
+    },
+    {
+      "id": "NAMING-DIR-001",
+      "severity": "low",
+      "title": "Carpeta con nombre inconsistente",
+      "explanation": "Carpetas con estilos mezclados generan fricción. Elegí kebab-case o lowerCamel y mantenelo.",
+      "evidence": {
+        "file": "app/(app)/layout.tsx",
+        "dir": "(app)"
+      }
+    },
+    {
+      "id": "NAMING-DIR-001",
+      "severity": "low",
+      "title": "Carpeta con nombre inconsistente",
+      "explanation": "Carpetas con estilos mezclados generan fricción. Elegí kebab-case o lowerCamel y mantenelo.",
+      "evidence": {
+        "file": "app/(app)/analyze/page.tsx",
+        "dir": "(app)"
+      }
+    },
+    {
+      "id": "NAMING-DIR-001",
+      "severity": "low",
+      "title": "Carpeta con nombre inconsistente",
+      "explanation": "Carpetas con estilos mezclados generan fricción. Elegí kebab-case o lowerCamel y mantenelo.",
+      "evidence": {
+        "file": "app/(app)/dashboard/page.tsx",
+        "dir": "(app)"
+      }
+    },
+    {
+      "id": "NAMING-DIR-001",
+      "severity": "low",
+      "title": "Carpeta con nombre inconsistente",
+      "explanation": "Carpetas con estilos mezclados generan fricción. Elegí kebab-case o lowerCamel y mantenelo.",
+      "evidence": {
+        "file": "app/(app)/reports/page.tsx",
+        "dir": "(app)"
+      }
+    },
+    {
+      "id": "NAMING-DIR-001",
+      "severity": "low",
+      "title": "Carpeta con nombre inconsistente",
+      "explanation": "Carpetas con estilos mezclados generan fricción. Elegí kebab-case o lowerCamel y mantenelo.",
+      "evidence": {
+        "file": "app/(app)/settings/personal/page.tsx",
+        "dir": "(app)"
+      }
+    },
+    {
+      "id": "NAMING-DIR-001",
+      "severity": "low",
+      "title": "Carpeta con nombre inconsistente",
+      "explanation": "Carpetas con estilos mezclados generan fricción. Elegí kebab-case o lowerCamel y mantenelo.",
+      "evidence": {
+        "file": "app/(app)/settings/professional/page.tsx",
+        "dir": "(app)"
+      }
+    },
+    {
+      "id": "NAMING-DIR-001",
+      "severity": "low",
+      "title": "Carpeta con nombre inconsistente",
+      "explanation": "Carpetas con estilos mezclados generan fricción. Elegí kebab-case o lowerCamel y mantenelo.",
+      "evidence": {
+        "file": "app/(app)/study/ultrasound/page.tsx",
+        "dir": "(app)"
+      }
+    },
+    {
+      "id": "NAMING-DIR-001",
+      "severity": "low",
+      "title": "Carpeta con nombre inconsistente",
+      "explanation": "Carpetas con estilos mezclados generan fricción. Elegí kebab-case o lowerCamel y mantenelo.",
+      "evidence": {
+        "file": "app/(app)/reports/[reportId]/preview/page.tsx",
+        "dir": "(app)"
+      }
+    }
+  ]
+}
