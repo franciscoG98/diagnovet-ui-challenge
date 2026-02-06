@@ -19,9 +19,9 @@ export interface Report {
   patientName: string
   patientInitial: string
   species: string
-  tutor: string
+  guardian: string
   studyType: string
-  status: "en_progreso" | "completado"
+  status: "in_progress" | "completed"
   date: string
 }
 
@@ -35,12 +35,12 @@ export function ReportsTable({ reports }: ReportsTableProps) {
       <Table>
         <TableHeader>
           <TableRow className="bg-muted/50">
-            <TableHead className="font-medium">Paciente</TableHead>
-            <TableHead className="font-medium">Tutor</TableHead>
-            <TableHead className="font-medium">Tipo de estudio</TableHead>
-            <TableHead className="font-medium">Estado</TableHead>
-            <TableHead className="font-medium">Fecha</TableHead>
-            <TableHead className="font-medium">Acciones</TableHead>
+            <TableHead className="font-medium">Patient</TableHead>
+            <TableHead className="font-medium">Guardian</TableHead>
+            <TableHead className="font-medium">Study Type</TableHead>
+            <TableHead className="font-medium">Status</TableHead>
+            <TableHead className="font-medium">Date</TableHead>
+            <TableHead className="font-medium">Actions</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -59,35 +59,35 @@ export function ReportsTable({ reports }: ReportsTableProps) {
                   </div>
                 </div>
               </TableCell>
-              <TableCell className="text-muted-foreground">{report.tutor}</TableCell>
+              <TableCell className="text-muted-foreground">{report.guardian}</TableCell>
               <TableCell>{report.studyType}</TableCell>
               <TableCell>
                 <Badge
-                  variant={report.status === "completado" ? "default" : "secondary"}
+                  variant={report.status === "completed" ? "default" : "secondary"}
                   className={
-                    report.status === "completado"
+                    report.status === "completed"
                       ? "bg-green-100 text-green-700 hover:bg-green-100"
                       : "bg-blue-100 text-blue-700 hover:bg-blue-100"
                   }
                 >
-                  {report.status === "completado" ? "Completado" : "En progreso"}
+                  {report.status === "completed" ? "Completed" : "In Progress"}
                 </Badge>
               </TableCell>
               <TableCell className="text-muted-foreground">{report.date}</TableCell>
               <TableCell>
                 <div className="flex items-center gap-1">
-                  {report.status === "en_progreso" ? (
+                  {report.status === "in_progress" ? (
                     <Link href={`/study/ultrasound?id=${report.id}`}>
                       <Button variant="ghost" size="sm" className="gap-1 text-foreground">
                         <Play className="w-4 h-4" />
-                        Continuar
+                        Continue
                       </Button>
                     </Link>
                   ) : (
                     <Link href={`/reports/${report.id}/preview`}>
                       <Button variant="ghost" size="sm" className="gap-1 text-foreground">
                         <Download className="w-4 h-4" />
-                        Descargar
+                        Download
                       </Button>
                     </Link>
                   )}

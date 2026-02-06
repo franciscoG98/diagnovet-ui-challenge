@@ -12,12 +12,7 @@ interface OnboardingShellProps {
   className?: string
 }
 
-export function OnboardingShell({
-  children,
-  title,
-  subtitle,
-  className,
-}: OnboardingShellProps) {
+export function OnboardingShell({ children, title, subtitle, className }: OnboardingShellProps) {
   return (
     <div className="min-h-screen bg-background">
       <div className="flex justify-center pt-8 pb-4">

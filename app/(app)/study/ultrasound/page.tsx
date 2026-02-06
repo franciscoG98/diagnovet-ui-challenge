@@ -18,7 +18,7 @@ import {
 import { RichTextMock } from "@/components/rich-text-mock"
 import { ChevronLeft, ChevronRight, X, FileText, Eye } from "lucide-react"
 
-// Mock thumbnail data
+// @todo: USER_ACTION - Replace with real ultrasound thumbnails
 const thumbnails = Array.from({ length: 8 }, (_, i) => ({
   id: `thumb-${i + 1}`,
   label: `Image ${i + 1}`,
@@ -38,9 +38,7 @@ export default function UltrasoundStudyPage() {
             <div
               key={thumb.id}
               className={`relative aspect-square rounded cursor-pointer border-2 transition-colors ${
-                currentImage === index
-                  ? "border-blue-500"
-                  : "border-transparent"
+                currentImage === index ? "border-blue-500" : "border-transparent"
               }`}
               onClick={() => setCurrentImage(index)}
             >
@@ -71,7 +69,7 @@ export default function UltrasoundStudyPage() {
               </div>
               <div className="text-center">
                 <p>DiagnoVet</p>
-                <p className="text-white/70">24/10/2025 08:31:39</p>
+                <p className="text-white/70">10/24/2025 08:31:39</p>
               </div>
               <div className="text-center">
                 <p>FLORA LOPEZ CORTI</p>
@@ -108,11 +106,7 @@ export default function UltrasoundStudyPage() {
                       <stop offset="100%" stopColor="#1a1a1a" />
                     </radialGradient>
                   </defs>
-                  <path
-                    d="M150,0 L30,250 L270,250 Z"
-                    fill="url(#ultrasoundGrad)"
-                    opacity="0.9"
-                  />
+                  <path d="M150,0 L30,250 L270,250 Z" fill="url(#ultrasoundGrad)" opacity="0.9" />
                   {/* Some noise/texture lines */}
                   <g stroke="#4a4a4a" strokeWidth="0.5" opacity="0.5">
                     <line x1="150" y1="20" x2="80" y2="200" />
@@ -155,9 +149,7 @@ export default function UltrasoundStudyPage() {
           </button>
           <button
             className="absolute right-8 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 rounded-full p-3 transition-colors"
-            onClick={() =>
-              setCurrentImage(Math.min(thumbnails.length - 1, currentImage + 1))
-            }
+            onClick={() => setCurrentImage(Math.min(thumbnails.length - 1, currentImage + 1))}
           >
             <ChevronRight className="w-6 h-6 text-white" />
           </button>
@@ -172,32 +164,36 @@ export default function UltrasoundStudyPage() {
       {/* Right Panel - Study Info */}
       <div className="w-[400px] bg-card border-l overflow-y-auto">
         <div className="p-4">
-          <Accordion type="multiple" defaultValue={["study-type", "observations"]} className="space-y-4">
+          <Accordion
+            type="multiple"
+            defaultValue={["study-type", "observations"]}
+            className="space-y-4"
+          >
             <AccordionItem value="study-type" className="border rounded-lg px-4">
               <AccordionTrigger className="hover:no-underline">
                 <div className="flex items-center gap-2">
                   <FileText className="w-5 h-5 text-teal" />
-                  <span className="font-semibold">Tipo de Estudio</span>
+                  <span className="font-semibold">Study Type</span>
                 </div>
               </AccordionTrigger>
               <AccordionContent className="pt-4 pb-6">
                 <div className="space-y-4">
                   <div className="space-y-2">
-                    <label className="text-sm text-muted-foreground">Tipo de Examen</label>
+                    <label className="text-sm text-muted-foreground">Exam Type</label>
                     <Select value={studyType} onValueChange={setStudyType}>
                       <SelectTrigger>
-                        <SelectValue placeholder="Seleccionar..." />
+                        <SelectValue placeholder="Select..." />
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="abdominal">Abdominal</SelectItem>
-                        <SelectItem value="cuello">Cuello</SelectItem>
-                        <SelectItem value="gestacional">Gestacional</SelectItem>
+                        <SelectItem value="neck">Neck</SelectItem>
+                        <SelectItem value="gestational">Gestational</SelectItem>
                         <SelectItem value="ocular">Ocular</SelectItem>
-                        <SelectItem value="toracico">Torácico</SelectItem>
+                        <SelectItem value="thoracic">Thoracic</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
-                  <RichTextMock placeholder="Escriba o dicte el diagnóstico presuntivo..." />
+                  <RichTextMock placeholder="Type or dictate the presumptive diagnosis..." />
                 </div>
               </AccordionContent>
             </AccordionItem>
@@ -206,11 +202,11 @@ export default function UltrasoundStudyPage() {
               <AccordionTrigger className="hover:no-underline">
                 <div className="flex items-center gap-2">
                   <Eye className="w-5 h-5 text-teal" />
-                  <span className="font-semibold">Observaciones Iniciales</span>
+                  <span className="font-semibold">Initial Observations</span>
                 </div>
               </AccordionTrigger>
               <AccordionContent className="pt-4 pb-6">
-                <RichTextMock placeholder="Agregue sus observaciones aquí..." />
+                <RichTextMock placeholder="Add your observations here..." />
               </AccordionContent>
             </AccordionItem>
           </Accordion>

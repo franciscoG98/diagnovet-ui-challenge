@@ -20,26 +20,26 @@ import {
 import { Heart, Cloud, Trash2, ArrowRight, Lightbulb, X, Upload } from "lucide-react"
 
 const analyzeSchema = z.object({
-  fecha: z.string().min(1, "La fecha es requerida"),
-  nombreAnimal: z.string().min(1, "El nombre del animal es requerido"),
-  edad: z.string().min(1, "La edad es requerida"),
-  unidadEdad: z.string().min(1, "La unidad es requerida"),
-  especie: z.string().min(1, "La especie es requerida"),
-  raza: z.string().optional(),
-  peso: z.string().optional(),
-  unidadPeso: z.string().optional(),
-  genero: z.string().min(1, "El género es requerido"),
-  castrado: z.boolean().optional(),
-  profesionalDerivante: z.string().optional(),
-  emailProfesional: z.string().optional(),
-  tutor: z.string().min(1, "El tutor es requerido"),
-  emailTutor: z.string().optional(),
-  tipoEstudio: z.string().min(1, "El tipo de estudio es requerido"),
+  date: z.string().min(1, "Date is required"),
+  animalName: z.string().min(1, "Animal name is required"),
+  age: z.string().min(1, "Age is required"),
+  ageUnit: z.string().min(1, "Unit is required"),
+  species: z.string().min(1, "Species is required"),
+  breed: z.string().optional(),
+  weight: z.string().optional(),
+  weightUnit: z.string().optional(),
+  gender: z.string().min(1, "Gender is required"),
+  neutered: z.boolean().optional(),
+  referringProfessional: z.string().optional(),
+  professionalEmail: z.string().optional(),
+  guardian: z.string().min(1, "Guardian is required"),
+  guardianEmail: z.string().optional(),
+  studyType: z.string().min(1, "Study type is required"),
 })
 
 type AnalyzeFormData = z.infer<typeof analyzeSchema>
 
-// Mock images data
+// @todo: USER_ACTION - Replace placeholder images with real ultrasound images
 const mockImages = Array.from({ length: 21 }, (_, i) => ({
   id: `img-${i + 1}`,
   src: `/placeholder.svg?height=100&width=100&text=${i + 1}`,
@@ -60,20 +60,20 @@ export default function AnalyzePage() {
   } = useForm<AnalyzeFormData>({
     resolver: zodResolver(analyzeSchema),
     defaultValues: {
-      fecha: "13/11/2025",
-      nombreAnimal: "Pony",
-      edad: "10",
-      unidadEdad: "years",
-      especie: "felino",
-      raza: "comun_europeo",
-      peso: "5",
-      unidadPeso: "kg",
-      genero: "hembra",
-      castrado: true,
-      profesionalDerivante: "cardozo_guadalupe",
-      emailProfesional: "veteocampo@gmail.com",
-      tutor: "Nieto",
-      tipoEstudio: "ecografia",
+      date: "11/13/2025",
+      animalName: "Pony",
+      age: "10",
+      ageUnit: "years",
+      species: "feline",
+      breed: "european_shorthair",
+      weight: "5",
+      weightUnit: "kg",
+      gender: "female",
+      neutered: true,
+      referringProfessional: "cardozo_guadalupe",
+      professionalEmail: "veteocampo@gmail.com",
+      guardian: "Nieto",
+      studyType: "ultrasound",
     },
   })
 
@@ -93,29 +93,29 @@ export default function AnalyzePage() {
         <div className="max-w-lg mx-auto">
           <div className="flex items-center gap-2 mb-6">
             <Heart className="w-6 h-6 text-teal" />
-            <h1 className="text-xl font-semibold text-foreground">Analizar Paciente</h1>
+            <h1 className="text-xl font-semibold text-foreground">Analyze patient</h1>
           </div>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="fecha">
-                  Fecha<span className="text-destructive">*</span>
+                <Label htmlFor="date">
+                  Date<span className="text-destructive">*</span>
                 </Label>
                 <Input
-                  id="fecha"
-                  {...register("fecha")}
-                  className={errors.fecha ? "border-destructive" : ""}
+                  id="date"
+                  {...register("date")}
+                  className={errors.date ? "border-destructive" : ""}
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="nombreAnimal">
-                  Nombre Animal<span className="text-destructive">*</span>
+                <Label htmlFor="animalName">
+                  Animal Name<span className="text-destructive">*</span>
                 </Label>
                 <Input
-                  id="nombreAnimal"
-                  {...register("nombreAnimal")}
-                  className={errors.nombreAnimal ? "border-destructive" : ""}
+                  id="animalName"
+                  {...register("animalName")}
+                  className={errors.animalName ? "border-destructive" : ""}
                 />
               </div>
             </div>
@@ -123,48 +123,42 @@ export default function AnalyzePage() {
             <div className="grid grid-cols-2 gap-4">
               <div className="grid grid-cols-2 gap-2">
                 <div className="space-y-2">
-                  <Label htmlFor="edad">
-                    Edad<span className="text-destructive">*</span>
+                  <Label htmlFor="age">
+                    Age<span className="text-destructive">*</span>
                   </Label>
                   <Input
-                    id="edad"
-                    {...register("edad")}
-                    className={errors.edad ? "border-destructive" : ""}
+                    id="age"
+                    {...register("age")}
+                    className={errors.age ? "border-destructive" : ""}
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="unidadEdad">
-                    Unidad<span className="text-destructive">*</span>
+                  <Label htmlFor="ageUnit">
+                    Unit<span className="text-destructive">*</span>
                   </Label>
-                  <Select
-                    defaultValue="years"
-                    onValueChange={(v) => setValue("unidadEdad", v)}
-                  >
+                  <Select defaultValue="years" onValueChange={(v) => setValue("ageUnit", v)}>
                     <SelectTrigger>
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="years">Año/s</SelectItem>
-                      <SelectItem value="months">Mes/es</SelectItem>
+                      <SelectItem value="years">Year(s)</SelectItem>
+                      <SelectItem value="months">Month(s)</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="especie">
-                  Especie<span className="text-destructive">*</span>
+                <Label htmlFor="species">
+                  Species<span className="text-destructive">*</span>
                 </Label>
-                <Select
-                  defaultValue="felino"
-                  onValueChange={(v) => setValue("especie", v)}
-                >
-                  <SelectTrigger className={errors.especie ? "border-destructive" : ""}>
+                <Select defaultValue="feline" onValueChange={(v) => setValue("species", v)}>
+                  <SelectTrigger className={errors.species ? "border-destructive" : ""}>
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="felino">Felino</SelectItem>
-                    <SelectItem value="canino">Canino</SelectItem>
-                    <SelectItem value="equino">Equino</SelectItem>
+                    <SelectItem value="feline">Feline</SelectItem>
+                    <SelectItem value="canine">Canine</SelectItem>
+                    <SelectItem value="equine">Equine</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -172,32 +166,29 @@ export default function AnalyzePage() {
 
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="raza">Raza</Label>
+                <Label htmlFor="breed">Breed</Label>
                 <Select
-                  defaultValue="comun_europeo"
-                  onValueChange={(v) => setValue("raza", v)}
+                  defaultValue="european_shorthair"
+                  onValueChange={(v) => setValue("breed", v)}
                 >
                   <SelectTrigger>
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="comun_europeo">Comun Europeo</SelectItem>
-                    <SelectItem value="persa">Persa</SelectItem>
-                    <SelectItem value="siames">Siamés</SelectItem>
+                    <SelectItem value="european_shorthair">European Shorthair</SelectItem>
+                    <SelectItem value="persian">Persian</SelectItem>
+                    <SelectItem value="siamese">Siamese</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
               <div className="grid grid-cols-2 gap-2">
                 <div className="space-y-2">
-                  <Label htmlFor="peso">Peso</Label>
-                  <Input id="peso" {...register("peso")} />
+                  <Label htmlFor="weight">Weight</Label>
+                  <Input id="weight" {...register("weight")} />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="unidadPeso">Unidad</Label>
-                  <Select
-                    defaultValue="kg"
-                    onValueChange={(v) => setValue("unidadPeso", v)}
-                  >
+                  <Label htmlFor="weightUnit">Unit</Label>
+                  <Select defaultValue="kg" onValueChange={(v) => setValue("weightUnit", v)}>
                     <SelectTrigger>
                       <SelectValue />
                     </SelectTrigger>
@@ -212,33 +203,28 @@ export default function AnalyzePage() {
 
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="genero">
-                  Género<span className="text-destructive">*</span>
+                <Label htmlFor="gender">
+                  Gender<span className="text-destructive">*</span>
                 </Label>
-                <Select
-                  defaultValue="hembra"
-                  onValueChange={(v) => setValue("genero", v)}
-                >
-                  <SelectTrigger className={errors.genero ? "border-destructive" : ""}>
+                <Select defaultValue="female" onValueChange={(v) => setValue("gender", v)}>
+                  <SelectTrigger className={errors.gender ? "border-destructive" : ""}>
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="hembra">Hembra</SelectItem>
-                    <SelectItem value="macho">Macho</SelectItem>
+                    <SelectItem value="female">Female</SelectItem>
+                    <SelectItem value="male">Male</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
               <div className="flex items-end pb-2">
                 <div className="flex items-center gap-2">
                   <Checkbox
-                    id="castrado"
+                    id="neutered"
                     defaultChecked
-                    onCheckedChange={(checked) =>
-                      setValue("castrado", checked as boolean)
-                    }
+                    onCheckedChange={(checked) => setValue("neutered", checked as boolean)}
                   />
-                  <Label htmlFor="castrado" className="cursor-pointer">
-                    Castrado
+                  <Label htmlFor="neutered" className="cursor-pointer">
+                    Neutered
                   </Label>
                 </div>
               </div>
@@ -246,27 +232,27 @@ export default function AnalyzePage() {
 
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="profesionalDerivante">Profesional derivante</Label>
+                <Label htmlFor="referringProfessional">Referring Professional</Label>
                 <Select
                   defaultValue="cardozo_guadalupe"
-                  onValueChange={(v) => setValue("profesionalDerivante", v)}
+                  onValueChange={(v) => setValue("referringProfessional", v)}
                 >
                   <SelectTrigger>
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="cardozo_guadalupe">Cardozo Guadalupe</SelectItem>
-                    <SelectItem value="otro">Otro</SelectItem>
+                    <SelectItem value="other">Other</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="emailProfesional">
-                  Email del profesional<span className="text-destructive">*</span>
+                <Label htmlFor="professionalEmail">
+                  Professional Email<span className="text-destructive">*</span>
                 </Label>
                 <Input
-                  id="emailProfesional"
-                  {...register("emailProfesional")}
+                  id="professionalEmail"
+                  {...register("professionalEmail")}
                   disabled
                   className="bg-muted"
                 />
@@ -275,35 +261,32 @@ export default function AnalyzePage() {
 
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="tutor">
-                  Tutor<span className="text-destructive">*</span>
+                <Label htmlFor="guardian">
+                  Guardian<span className="text-destructive">*</span>
                 </Label>
                 <Input
-                  id="tutor"
-                  {...register("tutor")}
-                  className={errors.tutor ? "border-destructive" : "bg-yellow-50"}
+                  id="guardian"
+                  {...register("guardian")}
+                  className={errors.guardian ? "border-destructive" : "bg-yellow-50"}
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="emailTutor">Email del tutor</Label>
-                <Input id="emailTutor" {...register("emailTutor")} />
+                <Label htmlFor="guardianEmail">Guardian Email</Label>
+                <Input id="guardianEmail" {...register("guardianEmail")} />
               </div>
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="tipoEstudio">
-                Tipo de estudio<span className="text-destructive">*</span>
+              <Label htmlFor="studyType">
+                Study Type<span className="text-destructive">*</span>
               </Label>
-              <Select
-                defaultValue="ecografia"
-                onValueChange={(v) => setValue("tipoEstudio", v)}
-              >
-                <SelectTrigger className={errors.tipoEstudio ? "border-destructive" : ""}>
+              <Select defaultValue="ultrasound" onValueChange={(v) => setValue("studyType", v)}>
+                <SelectTrigger className={errors.studyType ? "border-destructive" : ""}>
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="ecografia">Ecografía</SelectItem>
-                  <SelectItem value="radiografia">Radiografía</SelectItem>
+                  <SelectItem value="ultrasound">Ultrasound</SelectItem>
+                  <SelectItem value="xray">X-Ray</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -315,23 +298,16 @@ export default function AnalyzePage() {
               onClick={() => setHasImages(!hasImages)}
             >
               <Cloud className="w-4 h-4 mr-2" />
-              Agregar imágenes
+              Add Images
             </Button>
 
             <div className="grid grid-cols-2 gap-4 pt-4">
-              <Button
-                type="button"
-                variant="destructive"
-                className="bg-red-500 hover:bg-red-600"
-              >
+              <Button type="button" variant="destructive" className="bg-red-500 hover:bg-red-600">
                 <Trash2 className="w-4 h-4 mr-2" />
-                Limpiar
+                Clear
               </Button>
-              <Button
-                type="submit"
-                className="bg-green-500 hover:bg-green-600 text-white"
-              >
-                Continuar
+              <Button type="submit" className="bg-green-500 hover:bg-green-600 text-white">
+                Continue
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </div>
@@ -343,15 +319,15 @@ export default function AnalyzePage() {
       <div className="w-full md:w-[400px] lg:w-[500px] bg-muted/30 p-6">
         <Card>
           <CardHeader>
-            <CardTitle className="text-lg">Imágenes ({images.length})</CardTitle>
-            <p className="text-sm text-muted-foreground">Arrastra para reordenar</p>
+            <CardTitle className="text-lg">Images ({images.length})</CardTitle>
+            <p className="text-sm text-muted-foreground">Drag to reorder</p>
           </CardHeader>
           <CardContent>
             {hasImages && images.length > 10 && (
-              <div className="bg-green-50 border border-green-200 rounded-lg p-3 mb-4 flex items-start gap-2">
+              <div className="bg-green-50 border border-green-200 rounded-lg p-3 border-l-4 border-l-green-600 mb-4 flex items-start gap-2">
                 <Lightbulb className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
                 <p className="text-sm text-green-700">
-                  Tienes muchas imágenes. El grid se ajusta automáticamente al ancho disponible.
+                  You have many images. The grid adjusts automatically to the available width.
                 </p>
               </div>
             )}

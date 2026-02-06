@@ -13,9 +13,9 @@ import { ArrowRight, Loader2 } from "lucide-react"
 import { useState } from "react"
 
 const clinicSchema = z.object({
-  legalName: z.string().min(1, "El nombre legal es requerido"),
-  address: z.string().min(1, "La dirección es requerida"),
-  phone: z.string().min(1, "El teléfono es requerido"),
+  legalName: z.string().min(1, "Legal name is required"),
+  address: z.string().min(1, "Address is required"),
+  phone: z.string().min(1, "Phone number is required"),
 })
 
 type ClinicFormData = z.infer<typeof clinicSchema>
@@ -70,9 +70,7 @@ export default function OnboardingClinicPage() {
             {...register("address")}
             className={errors.address ? "border-destructive" : ""}
           />
-          {errors.address && (
-            <p className="text-sm text-destructive">{errors.address.message}</p>
-          )}
+          {errors.address && <p className="text-sm text-destructive">{errors.address.message}</p>}
         </div>
 
         <div className="space-y-2">
@@ -85,9 +83,7 @@ export default function OnboardingClinicPage() {
             {...register("phone")}
             className={errors.phone ? "border-destructive" : ""}
           />
-          {errors.phone && (
-            <p className="text-sm text-destructive">{errors.phone.message}</p>
-          )}
+          {errors.phone && <p className="text-sm text-destructive">{errors.phone.message}</p>}
         </div>
 
         <Button
@@ -107,11 +103,7 @@ export default function OnboardingClinicPage() {
 
         <InfoBox
           title="Why do we need this information?"
-          items={[
-            "Identify clinic",
-            "Facilitate communication",
-            "Comply with legal requirements",
-          ]}
+          items={["Identify clinic", "Facilitate communication", "Comply with legal requirements"]}
         />
       </form>
     </OnboardingShell>

@@ -14,7 +14,7 @@ interface AppHeaderProps {
 
 export function AppHeader({
   userName = "Fernanda Barbero",
-  userClinic = "DIVET CENTRO DE DIAGNOSTICO VETERINARIO",
+  userClinic = "DIVET VETERINARY DIAGNOSTIC CENTER",
   userInitial = "F",
 }: AppHeaderProps) {
   return (
@@ -31,24 +31,17 @@ export function AppHeader({
               className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               <CheckCircle2 className="w-4 h-4" />
-              Mis Estudios
+              My Studies
             </Link>
             <Link href="/analyze">
-              <Button
-                variant="ghost"
-                className="flex items-center gap-2 text-sm"
-              >
+              <Button variant="ghost" className="flex items-center gap-2 text-sm">
                 <Plus className="w-4 h-4" />
-                Nuevo Reporte
+                New Report
               </Button>
             </Link>
           </nav>
 
-          <UserMenu
-            userName={userName}
-            userClinic={userClinic}
-            userInitial={userInitial}
-          />
+          <UserMenu userName={userName} userClinic={userClinic} userInitial={userInitial} />
         </div>
       </div>
     </header>

@@ -35,9 +35,7 @@ export function UserMenu({ userName, userClinic, userInitial }: UserMenuProps) {
           </Avatar>
           <div className="hidden md:block text-left">
             <p className="text-sm font-medium text-foreground">{userName}</p>
-            <p className="text-xs text-muted-foreground uppercase tracking-wide">
-              {userClinic}
-            </p>
+            <p className="text-xs text-muted-foreground uppercase tracking-wide">{userClinic}</p>
           </div>
           <ChevronDown className="w-4 h-4 text-muted-foreground" />
         </button>
@@ -46,7 +44,7 @@ export function UserMenu({ userName, userClinic, userInitial }: UserMenuProps) {
         <DropdownMenuSub>
           <DropdownMenuSubTrigger className="flex items-center gap-2">
             <Settings className="w-4 h-4" />
-            <span>Configuración</span>
+            <span>Settings</span>
           </DropdownMenuSubTrigger>
           <DropdownMenuSubContent>
             <DropdownMenuItem asChild>
@@ -58,7 +56,7 @@ export function UserMenu({ userName, userClinic, userInitial }: UserMenuProps) {
             <DropdownMenuItem asChild>
               <Link href="/settings/professional" className="flex items-center gap-2">
                 <Building2 className="w-4 h-4" />
-                Veterinaria
+                Veterinary
               </Link>
             </DropdownMenuItem>
           </DropdownMenuSubContent>
@@ -66,7 +64,7 @@ export function UserMenu({ userName, userClinic, userInitial }: UserMenuProps) {
         <DropdownMenuSeparator />
         <DropdownMenuItem className="flex items-center gap-2 text-destructive">
           <LogOut className="w-4 h-4" />
-          <span>Cerrar Sesión</span>
+          <span>Sign Out</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

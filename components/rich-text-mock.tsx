@@ -5,14 +5,7 @@ import React from "react"
 import { useState } from "react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import {
-  Bold,
-  Italic,
-  Underline,
-  List,
-  ListOrdered,
-  RemoveFormatting,
-} from "lucide-react"
+import { Bold, Italic, Underline, List, ListOrdered, RemoveFormatting } from "lucide-react"
 
 interface RichTextMockProps {
   placeholder?: string
@@ -22,7 +15,7 @@ interface RichTextMockProps {
 }
 
 export function RichTextMock({
-  placeholder = "Escriba aquí...",
+  placeholder = "Type here...",
   defaultValue = "",
   className,
   onChange,

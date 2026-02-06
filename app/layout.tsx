@@ -1,28 +1,39 @@
 import React from "react"
-import type { Metadata } from 'next'
-import './globals.css'
+import { Geist, Geist_Mono } from "next/font/google"
+import type { Metadata } from "next"
+import "./globals.css"
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+})
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+})
 
 // @fix
 export const metadata: Metadata = {
-  title: 'DiagnovetAI - Veterinary Diagnostic Platform',
-  description: 'AI-powered veterinary diagnostic platform for ultrasound analysis and reporting',
-  generator: 'v0.app',
+  title: "DiagnovetAI - Veterinary Diagnostic Platform",
+  description: "AI-powered veterinary diagnostic platform for ultrasound analysis and reporting",
+  generator: "v0.app",
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
+        url: "/icon-light-32x32.png",
+        media: "(prefers-color-scheme: light)",
       },
       {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
+        url: "/icon-dark-32x32.png",
+        media: "(prefers-color-scheme: dark)",
       },
       {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
+        url: "/icon.svg",
+        type: "image/svg+xml",
       },
     ],
-    apple: '/apple-icon.png',
+    apple: "/apple-icon.png",
   },
 }
 
@@ -33,9 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`font-sans antialiased`}>
-        {children}
-      </body>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
     </html>
   )
 }

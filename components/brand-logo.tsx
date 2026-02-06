@@ -37,12 +37,7 @@ export function BrandLogo({ className, size = "md" }: BrandLogoProps) {
         fill="none"
       />
       <circle cx="32" cy="50" r="3" fill="white" />
-      <path
-        d="M28 32V36M36 32V36"
-        stroke="white"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
+      <path d="M28 32V36M36 32V36" stroke="white" strokeWidth="2" strokeLinecap="round" />
     </svg>
   )
 }

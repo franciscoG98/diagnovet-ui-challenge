@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
@@ -12,9 +13,8 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Loader2 } from "lucide-react"
 
-
 const loginSchema = z.object({
-  email: z.string().min(1, "El email es requerido").email("Email inválido"),
+  email: z.string().min(1, "Email is required").email("Invalid email"),
 })
 
 type LoginFormData = z.infer<typeof loginSchema>
@@ -30,27 +30,28 @@ export default function LoginPage() {
     resolver: zodResolver(loginSchema),
   })
 
+  const router = useRouter()
+
   const onSubmit = async (data: LoginFormData) => {
     setIsLoading(true)
     // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 2000))
     console.log(data)
     setIsLoading(false)
+    router.push("/dashboard")
   }
 
   return (
     <AuthCard>
       <div className="flex flex-col items-center">
         <BrandLogo size="lg" className="mb-6" />
-        <h1 className="text-xl font-semibold text-foreground mb-6">
-          Inicia sesión en DiagnovetAI
-        </h1>
+        <h1 className="text-xl font-semibold text-foreground mb-6">Sign in to DiagnovetAI</h1>
 
         {/* Loading status bar */}
         {isLoading && (
           <div className="w-full border rounded-lg p-3 flex items-center gap-3 mb-6 bg-muted/30">
             <Loader2 className="w-5 h-5 animate-spin text-muted-foreground" />
-            <span className="text-sm text-muted-foreground">Procesando…</span>
+            <span className="text-sm text-muted-foreground">Processing…</span>
           </div>
         )}
 
@@ -63,17 +64,15 @@ export default function LoginPage() {
 
         <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="email">Email o nombre de usuario</Label>
+            <Label htmlFor="email">Email or username</Label>
             <Input
               id="email"
               type="text"
-              placeholder="Email o nombre de usuario"
+              placeholder="Email or username"
               {...register("email")}
               className={errors.email ? "border-destructive" : ""}
             />
-            {errors.email && (
-              <p className="text-sm text-destructive">{errors.email.message}</p>
-            )}
+            {errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
           </div>
 
           <Button
@@ -82,14 +81,14 @@ export default function LoginPage() {
             disabled={isLoading}
           >
             {isLoading && <Loader2 className="w-4 h-4 mr-2 animate-spin" />}
-            Continuar
+            Continue
           </Button>
         </form>
 
         <p className="text-sm text-muted-foreground mt-6">
-          ¿No tienes cuenta?{" "}
+          Don&apos;t have an account?{" "}
           <Link href="/onboarding/clinic" className="text-teal hover:underline font-medium">
-            Registrate en DiagnovetAI
+            Sign up for DiagnovetAI
           </Link>
         </p>
       </div>

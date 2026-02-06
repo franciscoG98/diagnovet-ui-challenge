@@ -34,9 +34,7 @@ export function SectionCard({
             )}
             <div>
               <h3 className="font-semibold text-foreground">{title}</h3>
-              {subtitle && (
-                <p className="text-sm text-muted-foreground mt-0.5">{subtitle}</p>
-              )}
+              {subtitle && <p className="text-sm text-muted-foreground mt-0.5">{subtitle}</p>}
             </div>
           </div>
           {action}

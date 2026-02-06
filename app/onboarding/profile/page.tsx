@@ -20,9 +20,9 @@ import { ArrowRight, Loader2 } from "lucide-react"
 import { useState } from "react"
 
 const profileSchema = z.object({
-  phone: z.string().min(1, "El teléfono es requerido"),
-  professionalTitle: z.string().min(1, "El título profesional es requerido"),
-  fullName: z.string().min(1, "El nombre completo es requerido"),
+  phone: z.string().min(1, "Phone number is required"),
+  professionalTitle: z.string().min(1, "Professional title is required"),
+  fullName: z.string().min(1, "Full name is required"),
   license: z.string().optional(),
 })
 
@@ -67,9 +67,7 @@ export default function OnboardingProfilePage() {
             {...register("phone")}
             className={errors.phone ? "border-destructive" : ""}
           />
-          {errors.phone && (
-            <p className="text-sm text-destructive">{errors.phone.message}</p>
-          )}
+          {errors.phone && <p className="text-sm text-destructive">{errors.phone.message}</p>}
         </div>
 
         <div className="space-y-2">
@@ -101,18 +99,12 @@ export default function OnboardingProfilePage() {
             {...register("fullName")}
             className={errors.fullName ? "border-destructive" : ""}
           />
-          {errors.fullName && (
-            <p className="text-sm text-destructive">{errors.fullName.message}</p>
-          )}
+          {errors.fullName && <p className="text-sm text-destructive">{errors.fullName.message}</p>}
         </div>
 
         <div className="space-y-2">
           <Label htmlFor="license">Professional License (Optional)</Label>
-          <Input
-            id="license"
-            placeholder="E.g: MP 12345"
-            {...register("license")}
-          />
+          <Input id="license" placeholder="E.g: MP 12345" {...register("license")} />
         </div>
 
         <Button
@@ -132,11 +124,7 @@ export default function OnboardingProfilePage() {
 
         <InfoBox
           title="Why do we need this information?"
-          items={[
-            "Personalize profile",
-            "Show credentials",
-            "Generate reports",
-          ]}
+          items={["Personalize profile", "Show credentials", "Generate reports"]}
         />
       </form>
     </OnboardingShell>

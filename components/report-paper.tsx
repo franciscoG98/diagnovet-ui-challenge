@@ -9,10 +9,7 @@ interface ReportPaperProps {
 export function ReportPaper({ children, className }: ReportPaperProps) {
   return (
     <div
-      className={cn(
-        "max-w-4xl mx-auto bg-card rounded-lg shadow-lg border p-8 md:p-12",
-        className
-      )}
+      className={cn("max-w-4xl mx-auto bg-card rounded-lg shadow-lg border p-8 md:p-12", className)}
     >
       {children}
     </div>
