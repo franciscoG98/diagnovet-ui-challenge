@@ -8,14 +8,7 @@
  * - Add realistic diagnostic content
  */
 
-import type {
-  Patient,
-  Guardian,
-  Report,
-  ScanImage,
-  User,
-  LabResult,
-} from "./types"
+import type { Patient, Guardian, Report, ScanImage, User, LabResult } from "./types"
 
 // ============================================
 // Current User (logged in veterinarian)
@@ -83,7 +76,7 @@ export const patients: Patient[] = [
   },
   {
     id: "patient-4",
-    name: "Pulgita",
+    name: "Pulguita",
     species: "canine",
     breed: "Chihuahua",
     age: 8,
