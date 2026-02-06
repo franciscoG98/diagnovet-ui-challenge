@@ -39,7 +39,6 @@ const analyzeSchema = z.object({
 
 type AnalyzeFormData = z.infer<typeof analyzeSchema>
 
-// @todo: USER_ACTION - Replace placeholder images with real ultrasound images
 const mockImages = Array.from({ length: 21 }, (_, i) => ({
   id: `img-${i + 1}`,
   src: `/placeholder.svg?height=100&width=100&text=${i + 1}`,

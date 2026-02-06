@@ -1,10 +1,11 @@
 "use client"
 
-import Link from "next/link"
+import { Link } from "@/i18n/routing"
 import { BrandLogo } from "@/components/brand-logo"
 import { UserMenu } from "@/components/user-menu"
 import { CheckCircle2, Plus } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { LocaleSwitcher } from "./locale-switcher"
 
 interface AppHeaderProps {
   userName?: string
@@ -40,6 +41,9 @@ export function AppHeader({
               </Button>
             </Link>
           </nav>
+          <div className="w-[180px]">
+            <LocaleSwitcher />
+          </div>
 
           <UserMenu userName={userName} userClinic={userClinic} userInitial={userInitial} />
         </div>

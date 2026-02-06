@@ -8,11 +8,9 @@ export function Skeleton({ className }: SkeletonProps) {
   return <div className={cn("animate-pulse rounded-md bg-muted/60", className)} />
 }
 
-// Table skeleton for reports list
 export function TableSkeleton({ rows = 3 }: { rows?: number }) {
   return (
     <div className="border rounded-lg overflow-hidden">
-      {/* Header */}
       <div className="bg-muted/50 px-4 py-3 flex gap-4">
         <Skeleton className="h-4 w-24" />
         <Skeleton className="h-4 w-20" />
@@ -21,7 +19,6 @@ export function TableSkeleton({ rows = 3 }: { rows?: number }) {
         <Skeleton className="h-4 w-24" />
         <Skeleton className="h-4 w-20" />
       </div>
-      {/* Rows */}
       {Array.from({ length: rows }).map((_, i) => (
         <div key={i} className="px-4 py-4 flex items-center gap-4 border-t">
           <div className="flex items-center gap-3">
@@ -46,7 +43,6 @@ export function TableSkeleton({ rows = 3 }: { rows?: number }) {
   )
 }
 
-// Card skeleton for dashboard stats
 export function StatsCardSkeleton() {
   return (
     <div className="rounded-lg border bg-card p-6 space-y-3">
@@ -56,7 +52,6 @@ export function StatsCardSkeleton() {
   )
 }
 
-// Form skeleton
 export function FormSkeleton() {
   return (
     <div className="space-y-4">
@@ -85,7 +80,6 @@ export function FormSkeleton() {
   )
 }
 
-// Image grid skeleton
 export function ImageGridSkeleton({ count = 8 }: { count?: number }) {
   return (
     <div className="grid grid-cols-4 gap-2">

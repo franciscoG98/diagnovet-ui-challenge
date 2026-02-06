@@ -60,7 +60,7 @@ export default function UltrasoundStudyPage() {
         {/* Main Viewer */}
         <div className="flex-1 relative flex items-center justify-center">
           {/* Ultrasound display mock */}
-          <div className="relative max-w-4xl w-full aspect-[4/3] bg-black rounded-lg overflow-hidden mx-8">
+          <div className="relative max-w-4xl w-full aspect-4/3 bg-black rounded-lg overflow-hidden mx-8">
             {/* Top info bar */}
             <div className="absolute top-0 left-0 right-0 bg-black/80 text-white text-xs p-2 flex justify-between">
               <div className="space-y-0.5">

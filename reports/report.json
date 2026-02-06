@@ -167,17 +167,9 @@
     },
     "stack": {
       "framework": "Next.js",
-      "language": [
-        "TypeScript",
-        "React"
-      ],
-      "styling": [
-        "CSS global (globals.css)"
-      ],
-      "tooling": [
-        "ESLint",
-        "TypeScript"
-      ]
+      "language": ["TypeScript", "React"],
+      "styling": ["CSS global (globals.css)"],
+      "tooling": ["ESLint", "TypeScript"]
     },
     "structure": {
       "appRouter": true,

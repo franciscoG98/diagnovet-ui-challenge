@@ -1,0 +1,35 @@
+{
+  "SettingsProfessionalPage": {
+    "title": "Configurações Profissionais",
+    "subtitle": "Gerencie suas informações e credenciais profissionais",
+    "professionalInformation": {
+      "title": "Informações Profissionais",
+      "subtitle": "Gerencie suas informações e credenciais profissionais.",
+      "editProfile": "Editar Perfil",
+      "displayName": "Nome de Exibição",
+      "license": "Licença"
+    },
+    "digitalSignature": {
+      "title": "Assinatura Digital",
+      "subtitle": "Envie sua assinatura digital para relatórios.",
+      "addSignature": "Adicionar Assinatura",
+      "noSignature": "Nenhuma assinatura enviada",
+      "uploadDescription": "Envie um arquivo PNG, JPG ou BMP para adicionar sua assinatura digital"
+    },
+    "languagePreferences": {
+      "title": "Preferências de Idioma",
+      "subtitle": "Escolha seu idioma preferido para a interface do aplicativo.",
+      "label": "Idioma",
+      "description": "Selecione seu idioma preferido para a interface"
+    }
+  },
+  "Auth": {
+    "loginTitle": "Entrar em",
+    "password": "Senha",
+    "button": "Entrar"
+  },
+  "LocaleSwitcher": {
+    "label": "Mudar idioma",
+    "locale": "{locale, select, en {Inglês} es {Espanhol} pt {Português} other {Desconhecido}}"
+  }
+}
