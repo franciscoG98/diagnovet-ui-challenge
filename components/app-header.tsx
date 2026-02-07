@@ -7,7 +7,6 @@ import { CheckCircle2, Plus } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { LocaleSwitcher } from "./locale-switcher"
 import { useTranslations } from "next-intl"
-import { useParams } from "next/navigation"
 
 interface AppHeaderProps {
   userName?: string
@@ -23,26 +22,23 @@ export function AppHeader({
 
   const t = useTranslations("navigation")
 
-  const params = useParams()
-  const locale = params.locale
-
   return (
     <header className="bg-card border-b sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
-          <Link href={`/${locale}/dashboard`}>
+          <Link href="/dashboard">
             <BrandLogo size="md" />
           </Link>
 
           <nav className="hidden md:flex items-center gap-6">
             <Link
-              href={`/${locale}/reports`}
+              href="/reports"
               className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               <CheckCircle2 className="w-4 h-4" />
               {t("myStudies")}
             </Link>
-            <Link href={`/${locale}/analyze`}>
+            <Link href="/analyze">
               <Button variant="ghost" className="flex items-center gap-2 text-sm">
                 <Plus className="w-4 h-4" />
                 {t("newReport")}

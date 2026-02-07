@@ -80,6 +80,7 @@
   },
   "common": {
     "continue": "Continuar",
-    "tryAgain": "Tentar novamente"
+    "tryAgain": "Tentar novamente",
+    "week": "Semana"
   }
 }
