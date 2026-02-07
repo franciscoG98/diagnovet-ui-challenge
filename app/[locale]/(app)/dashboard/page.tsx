@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link"
 import { StatsCard } from "@/components/stats-card"
 import { Button } from "@/components/ui/button"
@@ -5,11 +6,15 @@ import { Input } from "@/components/ui/input"
 import { NoReportsEmptyState } from "@/components/empty-state"
 import { Plus, Search, Sparkles } from "lucide-react"
 import { useTranslations } from "next-intl"
+import { useParams } from "next/navigation"
 
 export default function DashboardPage() {
   const hasReports = false
 
   const t = useTranslations("Dashboard")
+
+  const params = useParams()
+  const locale = params.locale
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
@@ -47,7 +52,7 @@ export default function DashboardPage() {
             className="pl-10 transition-shadow focus:shadow-md focus:shadow-teal/10"
           />
         </div>
-        <Link href="/analyze" className="flex-1 md:flex-none">
+        <Link href={`/${locale}/analyze`} className="flex-1 md:flex-none">
           <Button className="w-full md:w-auto bg-foreground text-background hover:bg-foreground/90 hover:shadow-lg hover:shadow-foreground/20 transition-all text-base group">
             <Plus className="size-4 mr-2 group-hover:rotate-90 transition-transform duration-300" />
             {t("createNewReport")}

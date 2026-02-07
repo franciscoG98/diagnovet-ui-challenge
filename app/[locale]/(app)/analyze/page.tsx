@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { useRouter } from "next/navigation"
+import { useParams, useRouter } from "next/navigation"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
@@ -76,9 +76,12 @@ export default function AnalyzePage() {
     },
   })
 
+  const params = useParams()
+  const locale = params.locale
+
   const onSubmit = (data: AnalyzeFormData) => {
     console.log(data)
-    router.push("/study/ultrasound")
+    router.push(`/${locale}/study/ultrasound`)
   }
 
   const removeImage = (id: string) => {

@@ -22,7 +22,7 @@ export function LocaleSwitcherSelect({ children, defaultValue, label }: Props) {
     const nextLocale = value
     startTransition(() => {
       router.replace(
-        { pathname, params },
+        { pathname, query: params },
         { locale: nextLocale }
       )
     })

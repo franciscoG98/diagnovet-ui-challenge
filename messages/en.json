@@ -70,11 +70,16 @@
     "searchPlaceholder": "Search patients, guardians, referrers…",
     "createNewReport": "Create new report"
   },
+  "navigation": {
+    "myStudies": "My studies",
+    "newReport": "New Report"
+  },
   "LocaleSwitcher": {
     "label": "Change language",
     "locale": "{locale, select, en {English} es {Español} pt {Português} other {Unknown}}"
   },
   "common": {
-    "continue": "Continue"
+    "continue": "Continue",
+    "tryAgain": "Try Again"
   }
 }

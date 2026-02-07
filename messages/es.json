@@ -70,11 +70,16 @@
     "searchPlaceholder": "Buscar pacientes, dueños, referentes…",
     "createNewReport": "Crear un nuevo reporte"
   },
+  "navigation": {
+    "myStudies": "Mis estudios",
+    "newReport": "Nuevo reporte"
+  },
   "LocaleSwitcher": {
     "label": "Cambiar idioma",
     "locale": "{locale, select, en {English} es {Español} pt {Português} other {Desconocido}}"
   },
   "common": {
-    "continue": "Continuar"
+    "continue": "Continuar",
+    "tryAgain": "Try Again"
   }
 }

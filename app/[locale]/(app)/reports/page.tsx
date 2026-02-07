@@ -16,6 +16,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { useParams } from "next/navigation"
 
 // TODO: USER_ACTION - Replace mock data with realistic patient/report data
 const mockReports: Report[] = [
@@ -65,6 +66,9 @@ export default function ReportsPage() {
   const [isLoading, setIsLoading] = useState(true)
   const [searchQuery, setSearchQuery] = useState("")
   const [statusFilter, setStatusFilter] = useState<"all" | "in_progress" | "completed">("all")
+
+  const params = useParams()
+  const locale = params.locale
 
   // Simulate loading
   useEffect(() => {
@@ -138,7 +142,7 @@ export default function ReportsPage() {
           </DropdownMenuContent>
         </DropdownMenu>
 
-        <Link href="/analyze" className="flex-1 md:flex-none">
+        <Link href={`/${locale}/analyze`} className="flex-1 md:flex-none">
           <Button className="w-full md:w-auto bg-foreground text-background hover:bg-foreground/90 hover:shadow-lg transition-all text-base group">
             <Plus className="group-hover:rotate-90 transition-transform duration-300" />
             Create new report

@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { FileText, Plus, Search, Image, AlertCircle } from "lucide-react"
 import Link from "next/link"
+import { useTranslations } from "next-intl"
 
 interface EmptyStateProps {
   icon?: React.ReactNode
@@ -46,12 +47,15 @@ export function EmptyState({ icon, title, description, action, className }: Empt
 
 // Pre-configured empty states for common scenarios
 export function NoReportsEmptyState() {
+
+  const t = useTranslations("Dashboard")
+
   return (
     <EmptyState
       icon={<FileText className="w-8 h-8 text-muted-foreground" />}
       title="No reports found"
       description="Create your first report to get started with DiagnovetAI"
-      action={{ label: "Create Report", href: "/analyze" }}
+      action={{ label: t("createNewReport"), href: "/analyze" }}
     />
   )
 }
@@ -86,6 +90,9 @@ export function ErrorState({
   description?: string
   onRetry?: () => void
 }) {
+
+  const t = useTranslations("common")
+
   return (
     <div className="flex flex-col items-center justify-center py-16 text-center">
       <div className="w-16 h-16 bg-destructive/10 rounded-full flex items-center justify-center mb-4">
@@ -95,7 +102,7 @@ export function ErrorState({
       <p className="text-muted-foreground max-w-sm mb-6">{description}</p>
       {onRetry && (
         <Button variant="outline" onClick={onRetry}>
-          Try Again
+          {t("tryAgain")}
         </Button>
       )}
     </div>
