@@ -1,10 +1,12 @@
 "use client"
 
-import Link from "next/link"
+import { Link } from "@/i18n/routing"
 import { BrandLogo } from "@/components/brand-logo"
 import { UserMenu } from "@/components/user-menu"
 import { CheckCircle2, Plus } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { LocaleSwitcher } from "./locale-switcher"
+import { useTranslations } from "next-intl"
 
 interface AppHeaderProps {
   userName?: string
@@ -17,6 +19,9 @@ export function AppHeader({
   userClinic = "DIVET VETERINARY DIAGNOSTIC CENTER",
   userInitial = "F",
 }: AppHeaderProps) {
+
+  const t = useTranslations("navigation")
+
   return (
     <header className="bg-card border-b sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 py-3">
@@ -31,17 +36,20 @@ export function AppHeader({
               className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               <CheckCircle2 className="w-4 h-4" />
-              My Studies
+              {t("myStudies")}
             </Link>
             <Link href="/analyze">
               <Button variant="ghost" className="flex items-center gap-2 text-sm">
                 <Plus className="w-4 h-4" />
-                New Report
+                {t("newReport")}
               </Button>
             </Link>
           </nav>
 
-          <UserMenu userName={userName} userClinic={userClinic} userInitial={userInitial} />
+          <div className="flex gap-2 items-center justify-center">
+            <UserMenu userName={userName} userClinic={userClinic} userInitial={userInitial} />
+            <LocaleSwitcher />
+          </div>
         </div>
       </div>
     </header>

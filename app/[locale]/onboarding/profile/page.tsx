@@ -1,6 +1,6 @@
 "use client"
 
-import { useRouter } from "next/navigation"
+import { useRouter } from "@/i18n/routing"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/select"
 import { ArrowRight, Loader2 } from "lucide-react"
 import { useState } from "react"
+import { useTranslations } from "next-intl"
 
 const profileSchema = z.object({
   phone: z.string().min(1, "Phone number is required"),
@@ -52,58 +53,60 @@ export default function OnboardingProfilePage() {
     router.push("/dashboard")
   }
 
+  const t = useTranslations("Auth")
+
   return (
     <OnboardingShell
-      title="Almost done…"
-      subtitle="We need to ask you for a couple more details to improve the experience:"
+      title={t("titleClinic")}
+      subtitle={t("subtitleProfile")}
     >
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
         <div className="space-y-2">
           <Label htmlFor="phone">
-            Phone Number <span className="text-destructive">*</span>
+            {t("phone")} <span className="text-destructive">*</span>
           </Label>
           <Input
             id="phone"
             {...register("phone")}
             className={errors.phone ? "border-destructive" : ""}
           />
-          {errors.phone && <p className="text-sm text-destructive">{errors.phone.message}</p>}
+          {errors.phone && <p className="text-sm text-destructive">{t("required")}</p>}
         </div>
 
         <div className="space-y-2">
           <Label htmlFor="professionalTitle">
-            Professional Title <span className="text-destructive">*</span>
+            {t("professionalTitle")} <span className="text-destructive">*</span>
           </Label>
           <Select onValueChange={(value) => setValue("professionalTitle", value)}>
             <SelectTrigger className={errors.professionalTitle ? "border-destructive" : ""}>
               <SelectValue placeholder="Select a title" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="dvm">DVM (Doctor of Veterinary Medicine)</SelectItem>
-              <SelectItem value="mvz">MVZ (Médico Veterinario Zootecnista)</SelectItem>
-              <SelectItem value="technician">Veterinary Technician</SelectItem>
-              <SelectItem value="other">Other</SelectItem>
+              <SelectItem value="dvm">{t("professionalTitleOptions.dvm")}</SelectItem>
+              <SelectItem value="mvz">{t("professionalTitleOptions.mvz")}</SelectItem>
+              <SelectItem value="technician">{t("professionalTitleOptions.technician")}</SelectItem>
+              <SelectItem value="other">{t("professionalTitleOptions.other")}</SelectItem>
             </SelectContent>
           </Select>
           {errors.professionalTitle && (
-            <p className="text-sm text-destructive">{errors.professionalTitle.message}</p>
+            <p className="text-sm text-destructive">{t("required")}</p>
           )}
         </div>
 
         <div className="space-y-2">
           <Label htmlFor="fullName">
-            Full Name <span className="text-destructive">*</span>
+            {t("fullName")} <span className="text-destructive">*</span>
           </Label>
           <Input
             id="fullName"
             {...register("fullName")}
             className={errors.fullName ? "border-destructive" : ""}
           />
-          {errors.fullName && <p className="text-sm text-destructive">{errors.fullName.message}</p>}
+          {errors.fullName && <p className="text-sm text-destructive">{t("required")}</p>}
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="license">Professional License (Optional)</Label>
+          <Label htmlFor="license">{t("license")}</Label>
           <Input id="license" placeholder="E.g: MP 12345" {...register("license")} />
         </div>
 
@@ -116,15 +119,15 @@ export default function OnboardingProfilePage() {
             <Loader2 className="w-4 h-4 mr-2 animate-spin" />
           ) : (
             <>
-              Continue
+              {t("continue")}
               <ArrowRight className="w-4 h-4 ml-2" />
             </>
           )}
         </Button>
 
         <InfoBox
-          title="Why do we need this information?"
-          items={["Personalize profile", "Show credentials", "Generate reports"]}
+          title={t("info")}
+          items={[t("infoItemsProfessional.perzonalize"), t("infoItemsProfessional.show"), t("infoItemsProfessional.generate")]}
         />
       </form>
     </OnboardingShell>

@@ -14,6 +14,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Settings, LogOut, User, Building2, ChevronDown } from "lucide-react"
+import { useParams } from "next/navigation"
 
 interface UserMenuProps {
   userName: string
@@ -23,6 +24,9 @@ interface UserMenuProps {
 
 export function UserMenu({ userName, userClinic, userInitial }: UserMenuProps) {
   const [open, setOpen] = useState(false)
+
+  const params = useParams()
+  const locale = params.locale
 
   return (
     <DropdownMenu open={open} onOpenChange={setOpen}>
@@ -48,13 +52,13 @@ export function UserMenu({ userName, userClinic, userInitial }: UserMenuProps) {
           </DropdownMenuSubTrigger>
           <DropdownMenuSubContent>
             <DropdownMenuItem asChild>
-              <Link href="/settings/personal" className="flex items-center gap-2">
+              <Link href={`/${locale}/settings/personal`} className="flex items-center gap-2">
                 <User className="w-4 h-4" />
                 Personal
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
-              <Link href="/settings/professional" className="flex items-center gap-2">
+              <Link href={`/${locale}/settings/professional`} className="flex items-center gap-2">
                 <Building2 className="w-4 h-4" />
                 Veterinary
               </Link>

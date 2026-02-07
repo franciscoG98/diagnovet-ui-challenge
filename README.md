@@ -2,9 +2,9 @@
 
 > A polished UI prototype for reducing cognitive load and friction in veterinary diagnostic workflows.
 
-<!-- @todo: USER_ACTION - Replace with your deployed Vercel URL -->
+<!-- @todo: USER_ACTION - Replace video defense URL -->
 
-🔗 **[Live Demo](https://your-vercel-url.vercel.app)** | 📹 **[Video Defense](https://your-video-link)**
+🔗 **[Live Demo](https://diagnovet-ui-challenge.vercel.app/)** | 📹 **[Video Defense](https://your-video-link)**
 
 ---
 
@@ -124,6 +124,10 @@ npm install
 # Start development server
 npm run dev
 ```
+
+## Usage
+
+The login is not validated, it is just a placeholder, you can use any email.
 
 ### Available Scripts
 

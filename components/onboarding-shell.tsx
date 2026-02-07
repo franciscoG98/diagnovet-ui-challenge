@@ -4,6 +4,7 @@ import React from "react"
 
 import { BrandLogo } from "@/components/brand-logo"
 import { cn } from "@/lib/utils"
+import { LocaleSwitcher } from "@/components/locale-switcher"
 
 interface OnboardingShellProps {
   children: React.ReactNode
@@ -14,7 +15,10 @@ interface OnboardingShellProps {
 
 export function OnboardingShell({ children, title, subtitle, className }: OnboardingShellProps) {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      <div className="absolute top-4 right-4 w-[180px]">
+        <LocaleSwitcher />
+      </div>
       <div className="flex justify-center pt-8 pb-4">
         <BrandLogo size="lg" />
       </div>

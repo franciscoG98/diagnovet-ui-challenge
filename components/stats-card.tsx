@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
 import { TrendingUp, TrendingDown, Minus } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 interface StatsCardProps {
   title: string
@@ -11,6 +12,9 @@ interface StatsCardProps {
 }
 
 export function StatsCard({ title, value, change, trend = "neutral", className }: StatsCardProps) {
+
+  const t = useTranslations("common")
+
   return (
     <Card
       className={cn(
@@ -75,9 +79,9 @@ export function StatsCard({ title, value, change, trend = "neutral", className }
           </div>
         </div>
         <div className="flex justify-between mt-3 text-xs text-muted-foreground border-t pt-2">
-          <span>Week 1</span>
-          <span>Week 2</span>
-          <span>Week 3</span>
+          <span>{t("week")} 1</span>
+          <span>{t("week")} 2</span>
+          <span>{t("week")} 3</span>
         </div>
       </CardContent>
     </Card>

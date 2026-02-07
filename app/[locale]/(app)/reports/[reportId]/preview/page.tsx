@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label"
 import { ReportPaper } from "@/components/report-paper"
 import { RichTextMock } from "@/components/rich-text-mock"
 import { ArrowLeft, Download, Pencil, Settings, Save, X } from "lucide-react"
+import { useParams } from "next/navigation"
 
 export default function ReportPreviewPage() {
   const [isEditingDiagnosis, setIsEditingDiagnosis] = useState(false)
@@ -19,13 +20,16 @@ export default function ReportPreviewPage() {
 • Gastric lymphadenomegaly.
 • Inguinal hernia.`
 
+  const params = useParams()
+  const locale = params.locale
+
   return (
     <div className="min-h-[calc(100vh-73px)] bg-muted/30 py-8">
       <div className="max-w-5xl mx-auto px-4">
         {/* Top bar */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
           <div className="flex items-center gap-6">
-            <Link href="/reports">
+            <Link href={`/${locale}/reports`}>
               <Button variant="ghost" size="sm" className="gap-2">
                 <ArrowLeft className="w-4 h-4" />
                 Back to reports list

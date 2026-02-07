@@ -1,0 +1,86 @@
+{
+  "SettingsProfessionalPage": {
+    "title": "Professional Settings",
+    "subtitle": "Manage your professional information and credentials",
+    "professionalInformation": {
+      "title": "Professional Information",
+      "subtitle": "Manage your professional information and credentials.",
+      "editProfile": "Edit Profile",
+      "displayName": "Display Name",
+      "license": "License"
+    },
+    "digitalSignature": {
+      "title": "Digital Signature",
+      "subtitle": "Upload your digital signature for reports.",
+      "addSignature": "Add Signature",
+      "noSignature": "No signature uploaded",
+      "uploadDescription": "Upload a PNG, JPG, or BMP file to add your digital signature"
+    },
+    "languagePreferences": {
+      "title": "Language Preferences",
+      "subtitle": "Choose your preferred language for the application interface.",
+      "label": "Language",
+      "description": "Select your preferred language for the interface"
+    }
+  },
+  "Auth": {
+    "loginTitle": "Log in to",
+    "password": "Password",
+    "button": "Log in",
+    "loginNoAccount": "Don't have an account?",
+    "loginSignUp": "Sign up for",
+    "titleClinic": "Veterinary Information",
+    "subtitleClinic": "Complete your veterinary clinic data to continue",
+    "legalName": "Legal name of the veterinary clinic",
+    "address": "Address",
+    "phone": "Phone number",
+    "required": "This field is required",
+    "info": "Why do we need this information?",
+    "infoItems": {
+      "identify": "Identify the clinic",
+      "facilitate": "Facilitate communication",
+      "comply": "Comply with legal requirements"
+    },
+    "continue": "Continue",
+    "titleProfile": "Professional Information",
+    "subtitleProfile": "We need a few more details to improve the experience",
+    "professionalTitle": "Professional title",
+    "fullName": "Full name",
+    "professionalTitleOptions": {
+      "dvm": "DVM (Doctor of Veterinary Medicine)",
+      "mvz": "MVZ (Veterinary Zootechnist)",
+      "technician": "Veterinary Technician",
+      "other": "Other"
+    },
+    "license": "Professional License (Optional)",
+    "infoItemsProfessional": {
+      "perzonalize": "Personalize profile",
+      "show": "Show credentials",
+      "generate": "Generate reports"
+    },
+    "selectTitle": "Select a title"
+  },
+  "Dashboard": {
+    "welcome": "Welcome back",
+    "welcomeDescription": "Here's what's happening with your patients today",
+    "aiPoweredAnalysis": "AI-Powered Analysis",
+    "totalReports": "Total Reports",
+    "totalPatients": "Total Patients",
+    "activeReports": "Active Reports",
+    "searchPlaceholder": "Search patients, guardians, referrers…",
+    "createNewReport": "Create new report"
+  },
+  "navigation": {
+    "myStudies": "My studies",
+    "newReport": "New Report"
+  },
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, en {English} es {Español} pt {Português} other {Unknown}}"
+  },
+  "common": {
+    "continue": "Continue",
+    "tryAgain": "Try Again",
+    "week": "Week"
+  }
+}

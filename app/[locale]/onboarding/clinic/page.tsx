@@ -1,6 +1,6 @@
 "use client"
 
-import { useRouter } from "next/navigation"
+import { useRouter } from "@/i18n/routing"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
@@ -11,11 +11,12 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { ArrowRight, Loader2 } from "lucide-react"
 import { useState } from "react"
+import { useTranslations } from "next-intl"
 
 const clinicSchema = z.object({
-  legalName: z.string().min(1, "Legal name is required"),
-  address: z.string().min(1, "Address is required"),
-  phone: z.string().min(1, "Phone number is required"),
+  legalName: z.string().min(1, "required"),
+  address: z.string().min(1, "required"),
+  phone: z.string().min(1, "required"),
 })
 
 type ClinicFormData = z.infer<typeof clinicSchema>
@@ -39,15 +40,17 @@ export default function OnboardingClinicPage() {
     router.push("/onboarding/profile")
   }
 
+  const t = useTranslations("Auth")
+
   return (
     <OnboardingShell
-      title="Veterinary Information"
-      subtitle="Complete your veterinary clinic data to continue"
+      title={t("titleClinic")}
+      subtitle={t("subtitleClinic")}
     >
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
         <div className="space-y-2">
           <Label htmlFor="legalName">
-            Legal name of the veterinary clinic <span className="text-destructive">*</span>
+            {t("legalName")} <span className="text-destructive">*</span>
           </Label>
           <Input
             id="legalName"
@@ -56,13 +59,13 @@ export default function OnboardingClinicPage() {
             className={errors.legalName ? "border-destructive" : ""}
           />
           {errors.legalName && (
-            <p className="text-sm text-destructive">{errors.legalName.message}</p>
+            <p className="text-sm text-destructive">{t("required")}</p>
           )}
         </div>
 
         <div className="space-y-2">
           <Label htmlFor="address">
-            Address <span className="text-destructive">*</span>
+            {t("address")} <span className="text-destructive">*</span>
           </Label>
           <Input
             id="address"
@@ -70,12 +73,12 @@ export default function OnboardingClinicPage() {
             {...register("address")}
             className={errors.address ? "border-destructive" : ""}
           />
-          {errors.address && <p className="text-sm text-destructive">{errors.address.message}</p>}
+          {errors.address && <p className="text-sm text-destructive">{t("required")}</p>}
         </div>
 
         <div className="space-y-2">
           <Label htmlFor="phone">
-            Phone number <span className="text-destructive">*</span>
+            {t("phone")} <span className="text-destructive">*</span>
           </Label>
           <Input
             id="phone"
@@ -83,7 +86,7 @@ export default function OnboardingClinicPage() {
             {...register("phone")}
             className={errors.phone ? "border-destructive" : ""}
           />
-          {errors.phone && <p className="text-sm text-destructive">{errors.phone.message}</p>}
+          {errors.phone && <p className="text-sm text-destructive">{t("required")}</p>}
         </div>
 
         <Button
@@ -95,15 +98,15 @@ export default function OnboardingClinicPage() {
             <Loader2 className="w-4 h-4 mr-2 animate-spin" />
           ) : (
             <>
-              Continue
+              {t("continue")}
               <ArrowRight className="w-4 h-4 ml-2" />
             </>
           )}
         </Button>
 
         <InfoBox
-          title="Why do we need this information?"
-          items={["Identify clinic", "Facilitate communication", "Comply with legal requirements"]}
+          title={t("info")}
+          items={[t("infoItems.identify"), t("infoItems.facilitate"), t("infoItems.comply") ]}
         />
       </form>
     </OnboardingShell>

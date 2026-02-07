@@ -1,0 +1,86 @@
+{
+  "SettingsProfessionalPage": {
+    "title": "Configuración Profesional",
+    "subtitle": "Gestione su información profesional y credenciales",
+    "professionalInformation": {
+      "title": "Información Profesional",
+      "subtitle": "Gestione su información profesional y credenciales.",
+      "editProfile": "Editar Perfil",
+      "displayName": "Nombre para mostrar",
+      "license": "Licencia"
+    },
+    "digitalSignature": {
+      "title": "Firma Digital",
+      "subtitle": "Suba su firma digital para los reportes.",
+      "addSignature": "Agregar Firma",
+      "noSignature": "Sin firma cargada",
+      "uploadDescription": "Suba un archivo PNG, JPG o BMP para agregar su firma digital"
+    },
+    "languagePreferences": {
+      "title": "Preferencias de Idioma",
+      "subtitle": "Elija su idioma preferido para la interfaz de la aplicación.",
+      "label": "Idioma",
+      "description": "Seleccione su idioma preferido para la interfaz"
+    }
+  },
+  "Auth": {
+    "loginTitle": "Iniciar sesión en",
+    "password": "Contraseña",
+    "button": "Iniciar sesión",
+    "loginNoAccount": "¿No tienes una cuenta?",
+    "loginSignUp": "Registrarse en",
+    "titleClinic": "Información veterinaria",
+    "subtitleClinic": "Complete sus datos de la clínica veterinaria para continuar",
+    "legalName": "Nombre legal de la clínica veterinaria",
+    "address": "Dirección",
+    "phone": "Número de teléfono",
+    "required": "Este campo es obligatorio",
+    "info": "¿Por qué necesitamos esta información?",
+    "infoItems": {
+      "identify": "Identificar la clínica",
+      "facilitate": "Facilitar la comunicación",
+      "comply": "Cumplir con requisitos legales"
+    },
+    "continue": "Continuar",
+    "titleProfile": "Información del Veterinario",
+    "subtitleProfile": "Necesitamos algunos detalles más para mejorar la experiencia",
+    "professionalTitle": "Título profesional",
+    "fullName": "Nombre completo",
+    "professionalTitleOptions": {
+      "dvm": "DVM (Médico/a Veterinario/a)",
+      "mvz": "MVZ (Médico/a Veterinario/a Zootecnista)",
+      "technician": "Técnico/a Veterinario/a",
+      "other": "Otro"
+    },
+    "license": "Licencia profesional (Opcional)",
+    "infoItemsProfessional": {
+      "perzonalize": "Personalizar el perfil profesional",
+      "show": "Mostrar credenciales",
+      "generate": "Generar informes"
+    },
+    "selectTitle": "Seleccionar un título"
+  },
+  "Dashboard": {
+    "welcome": "Bienvenido",
+    "welcomeDescription": "Estas son las últimas actividades de tus pacientes",
+    "aiPoweredAnalysis": "Análisis impulsado por IA",
+    "totalReports": "Total de informes",
+    "totalPatients": "Total de pacientes",
+    "activeReports": "Informes activos",
+    "searchPlaceholder": "Buscar pacientes, dueños, referentes…",
+    "createNewReport": "Crear un nuevo reporte"
+  },
+  "navigation": {
+    "myStudies": "Mis estudios",
+    "newReport": "Nuevo reporte"
+  },
+  "LocaleSwitcher": {
+    "label": "Cambiar idioma",
+    "locale": "{locale, select, en {English} es {Español} pt {Português} other {Desconocido}}"
+  },
+  "common": {
+    "continue": "Continuar",
+    "tryAgain": "Try Again",
+    "week": "Semana"
+  }
+}
