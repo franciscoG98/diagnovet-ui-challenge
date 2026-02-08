@@ -78,6 +78,13 @@
     "label": "Change language",
     "locale": "{locale, select, en {English} es {Español} pt {Português} other {Unknown}}"
   },
+  "report": {
+    "patient": "patient",
+    "guardian": "Guardian",
+    "studyType": "Study Type",
+    "status": "Status",
+    "date": "Date"
+  },
   "common": {
     "continue": "Continue",
     "tryAgain": "Try Again",
