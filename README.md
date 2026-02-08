@@ -4,7 +4,7 @@
 
 <!-- @todo: USER_ACTION - Replace video defense URL -->
 
-🔗 **[Live Demo](https://diagnovet-ui-challenge.vercel.app/)** | 📹 **[Video Defense](https://your-video-link)**
+🔗 **[Live Demo](https://diagnovet-ui-challenge.vercel.app/)** | 📹 **[Video Defense](https://youtu.be/jmD22VU0rgw)**
 
 ---
 
