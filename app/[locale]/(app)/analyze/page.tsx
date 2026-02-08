@@ -318,7 +318,7 @@ export default function AnalyzePage() {
       </div>
 
       {/* Right Panel - Images */}
-      <div className="w-full md:w-[400px] lg:w-[500px] bg-muted/30 p-6">
+      <div className="w-full md:w-100 lg:w-125 bg-muted/30 p-6">
         <Card>
           <CardHeader>
             <CardTitle className="text-lg">Images ({images.length})</CardTitle>

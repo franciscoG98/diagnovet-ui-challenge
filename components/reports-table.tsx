@@ -20,6 +20,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { useParams } from "next/navigation"
+import { useTranslations } from "next-intl"
 
 export interface Report {
   id: string
@@ -37,16 +39,23 @@ interface ReportsTableProps {
 }
 
 export function ReportsTable({ reports }: ReportsTableProps) {
+
+  const t= useTranslations("report")
+
+  const params = useParams()
+  const locale = params.locale
+
   return (
     <div className="border rounded-lg overflow-hidden shadow-sm">
       <Table>
         <TableHeader>
           <TableRow className="bg-muted/50 hover:bg-muted/50">
-            <TableHead className="font-semibold text-foreground">Patient</TableHead>
-            <TableHead className="font-semibold text-foreground">Guardian</TableHead>
-            <TableHead className="font-semibold text-foreground">Study Type</TableHead>
-            <TableHead className="font-semibold text-foreground">Status</TableHead>
-            <TableHead className="font-semibold text-foreground">Date</TableHead>
+            {/* @fix: translate */}
+            <TableHead className="font-semibold text-foreground">{t("patient")}</TableHead>
+            <TableHead className="font-semibold text-foreground">{t("guardian")}</TableHead>
+            <TableHead className="font-semibold text-foreground">{t("studyType")}</TableHead>
+            <TableHead className="font-semibold text-foreground">{t("status")}</TableHead>
+            <TableHead className="font-semibold text-foreground">{t("date")}</TableHead>
             <TableHead className="font-semibold text-foreground text-right">Actions</TableHead>
           </TableRow>
         </TableHeader>
@@ -83,10 +92,9 @@ export function ReportsTable({ reports }: ReportsTableProps) {
                   variant={report.status === "completed" ? "default" : "secondary"}
                   className={`
                     transition-all duration-200 font-medium
-                    ${
-                      report.status === "completed"
-                        ? "bg-green-100 text-green-700 hover:bg-green-200 border border-green-200"
-                        : "bg-blue-100 text-blue-700 hover:bg-blue-200 border border-blue-200"
+                    ${report.status === "completed"
+                      ? "bg-green-100 text-green-700 hover:bg-green-200 border border-green-200"
+                      : "bg-blue-100 text-blue-700 hover:bg-blue-200 border border-blue-200"
                     }
                   `}
                 >
@@ -103,18 +111,19 @@ export function ReportsTable({ reports }: ReportsTableProps) {
               <TableCell>
                 <div className="flex items-center justify-end gap-1 opacity-70 group-hover:opacity-100 transition-opacity">
                   {report.status === "in_progress" ? (
-                    <Link href={`/study/ultrasound?id=${report.id}`}>
+                    <Link href={`/${locale}/study/ultrasound?id=${report.id}`}>
                       <Button
                         variant="ghost"
                         size="sm"
                         className="gap-1.5 text-foreground hover:text-teal hover:bg-teal/10 transition-colors"
                       >
                         <Play className="w-4 h-4" />
+                        {/* @fix: translate */}
                         Continue
                       </Button>
                     </Link>
                   ) : (
-                    <Link href={`/reports/${report.id}/preview`}>
+                    <Link href={`/${locale}/reports/${report.id}/preview`}>
                       <Button
                         variant="ghost"
                         size="sm"

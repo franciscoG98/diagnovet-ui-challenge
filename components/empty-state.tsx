@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { FileText, Plus, Search, Image, AlertCircle } from "lucide-react"
 import Link from "next/link"
 import { useTranslations } from "next-intl"
+import { useParams } from "next/navigation"
 
 interface EmptyStateProps {
   icon?: React.ReactNode
@@ -49,13 +50,16 @@ export function EmptyState({ icon, title, description, action, className }: Empt
 export function NoReportsEmptyState() {
 
   const t = useTranslations("Dashboard")
+  const params = useParams()
+  const locale = params.locale
+
 
   return (
     <EmptyState
       icon={<FileText className="w-8 h-8 text-muted-foreground" />}
       title="No reports found"
       description="Create your first report to get started with DiagnovetAI"
-      action={{ label: t("createNewReport"), href: "/analyze" }}
+      action={{ label: t("createNewReport"), href: `/${locale}/analyze` }}
     />
   )
 }
